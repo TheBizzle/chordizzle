@@ -1,0 +1,541 @@
+Sus-alpha (E) (ahafha)
+  Aug-alpha
+  m-alpha
+  Sus-delta
+  6-beta
+  7-theta
+  m6-beta
+  m7-alpha
+  Maj7-alpha
+  M-gamma
+  M-delta
+Sus-beta (G) (--hafa)
+  m-beta
+  Sus-delta
+  Sus-eta
+  M-alpha
+Sus-gamma (C) (--fhah)
+  m-gamma
+  6-alpha
+  7-iota
+  m6-alpha
+  M-beta
+Sus-delta (A) (-ahafh)
+  Aug-beta
+  m-beta
+  Sus-alpha
+  Sus-eta
+  Sus-beta
+  m7-beta
+  Maj7-beta
+  M-delta
+Sus-eta (D) (--ahaf)
+  Sus-beta
+  Sus-delta
+  6-gamma
+  7-beta
+  7-gamma
+  m6-gamma
+  Maj7-gamma
+  M-delta
+  M-eta
+m-alpha (E) (ahadha)
+  Dim-alpha
+  Aug-alpha
+  m-beta
+  6-beta
+  6-zeta
+  7-alpha
+  7-theta
+  9-alpha
+  m6-beta
+  m6-delta
+  m7-alpha
+  Maj7-alpha
+  M-gamma
+  Sus-alpha
+m-beta (A) (-ahadh)
+  Aug-beta
+  m-alpha
+  m-delta
+  m-gamma
+  Sus-beta
+  Sus-delta
+  6-gamma
+  6-eta
+  7-beta
+  9-beta
+  m6-gamma
+  m7-beta
+  m7-delta
+  Maj7-beta
+  Maj7-delta
+  M-delta
+m-gamma (D) (--ahad)
+  m-delta
+  Sus-eta
+  6-delta
+  7-gamma
+  9-zeta
+  m6-eta
+  m7-gamma
+  Maj7-gamma
+  M-beta
+  M-eta
+m-delta (C) (--dhad)
+  m-beta
+  m-gamma
+  M-eta
+M-alpha (G) (aehaea)
+  Sus-beta
+  M-beta
+  6-eta
+  7-delta
+  9-gamma
+  Maj7-delta
+  Maj7-eta
+M-beta (C) (haehae)
+  m-gamma
+  Sus-gamma
+  M-alpha
+  M-gamma
+  M-eta
+  7-eta
+  Maj7-eta
+M-gamma (E) (ahaeha)
+  Aug-alpha
+  m-alpha
+  Sus-alpha
+  M-beta
+  M-delta
+  6-beta
+  7-alpha
+  7-theta
+  9-alpha
+  m6-beta
+  m7-alpha
+  Maj7-zeta
+M-delta (A) (-ahaeh)
+  Aug-beta
+  Aug-gamma
+  m-beta
+  Sus-alpha
+  Sus-delta
+  Sus-eta
+  M-gamma
+  M-eta
+  6-gamma
+  7-beta
+  9-beta
+  m6-gamma
+  m7-beta
+  m7-delta
+  Maj7-beta
+  Maj7-delta
+M-eta (D) (--ahae)
+  M-beta
+  M-delta
+  m-gamma
+  Sus-eta
+  6-gamma
+  6-delta
+  7-gamma
+  m6-gamma
+  m6-eta
+  m7-gamma
+  Maj7-gamma
+Dim-alpha (E) (--jdga)
+  6-zeta
+  7-theta
+  m6-delta
+  m7-alpha
+  m-alpha
+Aug-alpha (E) (--aeie)
+  Aug-beta
+  Aug-gamma
+  7-zeta
+  Maj7-zeta
+  M-gamma
+  m-alpha
+  Sus-alpha
+Aug-beta (A) (-aiaei)
+  Aug-alpha
+  Aug-gamma
+  6-gamma
+  7-beta
+  m6-gamma
+  m7-beta
+  m7-delta
+  Maj7-beta
+  M-delta
+  m-beta
+  Sus-delta
+Aug-gamma (A) (--eaei)
+  Aug-alpha
+  Aug-beta
+  M-delta
+  m-beta
+m7-alpha (E) (ahkdha)
+  Dim-alpha
+  m-alpha
+  Sus-alpha
+  M-gamma
+  m7-beta
+  Maj7-alpha
+  6-beta
+  6-zeta
+  7-theta
+  9-alpha
+  m6-beta
+m7-beta (A) (-ahkdh)
+  Aug-beta
+  m-beta
+  Sus-delta
+  M-delta
+  m7-alpha
+  m7-delta
+  m7-gamma
+  Maj7-beta
+  6-gamma
+  7-beta
+  7-gamma
+  7-theta
+  7-iota
+  9-beta
+  9-delta
+  m6-gamma
+m7-gamma (D) (--ahkd)
+  m-gamma
+  M-eta
+  m7-beta
+  m7-delta
+  Maj7-gamma
+  6-delta
+  7-gamma
+  9-eta
+  9-theta
+  m6-eta
+m7-delta (A) (-ahadk)
+  Aug-beta
+  m-beta
+  M-delta
+  m7-beta
+  m7-gamma
+  Maj7-beta
+  Maj7-delta
+  6-gamma
+  7-beta
+  9-beta
+  m6-gamma
+m7-eta (C) (--dkah)
+  6-alpha
+  7-iota
+  9-delta
+  m6-alpha
+m6-alpha (C) (--djah)
+  Sus-gamma
+  m7-eta
+  6-alpha
+  7-iota
+  9-delta
+m6-beta (E) (ahadja)
+  m-alpha
+  Sus-alpha
+  M-gamma
+  m7-alpha
+  m6-gamma
+  m6-alpha
+  Maj7-alpha
+  6-beta
+  7-alpha
+  7-theta
+  9-alpha
+m6-gamma (A) (-ahadj)
+  Aug-beta
+  m-beta
+  Sus-eta
+  M-eta
+  M-delta
+  m7-beta
+  m7-delta
+  m6-eta
+  m6-beta
+  Maj7-beta
+  Maj7-delta
+  6-gamma
+  6-eta
+  7-beta
+  7-delta
+  9-beta
+m6-delta (E) (--jdha)
+  Dim-alpha
+  m-alpha
+  Maj7-alpha
+  6-zeta
+  7-theta
+  9-alpha
+m6-eta (D) (--ahjd)
+  m-gamma
+  M-eta
+  m7-gamma
+  m6-gamma
+  Maj7-gamma
+  6-delta
+  7-gamma
+  9-beta
+  9-theta
+  9-zeta
+Maj7-alpha (E) (ahleha)
+  m-alpha
+  Sus-alpha
+  m7-alpha
+  m6-delta
+  m6-beta
+  Maj7-beta
+  6-beta
+  6-zeta
+  7-alpha
+  7-theta
+  9-alpha
+Maj7-beta (A) (-ahleh)
+  Aug-beta
+  m-beta
+  Sus-delta
+  M-delta
+  m7-beta
+  m7-delta
+  m6-gamma
+  Maj7-alpha
+  Maj7-gamma
+  6-gamma
+  7-beta
+  7-iota
+  9-beta
+  9-delta
+Maj7-gamma (D) (--ahle)
+  m-gamma
+  Sus-eta
+  M-eta
+  m7-gamma
+  m6-eta
+  Maj7-beta
+  Maj7-eta
+  6-delta
+  7-gamma
+  9-theta
+Maj7-delta (A) (--hael)
+  m-beta
+  M-delta
+  M-alpha
+  m7-delta
+  m6-gamma
+  6-gamma
+  6-eta
+  7-beta
+  7-delta
+  9-beta
+  9-gamma
+Maj7-eta (C) (-aehle)
+  M-alpha
+  M-beta
+  Maj7-gamma
+  7-gamma
+  7-delta
+  9-beta
+  9-gamma
+Maj7-zeta (E) (--aehl)
+  M-gamma
+  Aug-alpha
+  7-zeta
+  Maj7-eta
+6-alpha (C) (--ejah)
+  Sus-gamma
+  m7-eta
+  m6-alpha
+  6-beta
+  7-iota
+  9-delta
+6-beta (E) (ahaeja)
+  Sus-alpha
+  M-gamma
+  m7-alpha
+  m6-beta
+  6-alpha
+  6-gamma
+  Maj7-alpha
+  7-alpha
+6-gamma (A) (hahaej)
+  Aug-beta
+  m-beta
+  Sus-eta
+  M-eta
+  M-delta
+  m7-beta
+  m7-delta
+  m6-gamma
+  Maj7-beta
+  Maj7-delta
+  6-beta
+  6-delta
+  6-eta
+  7-beta
+  9-beta
+6-delta (D) (-hahje)
+  Dim-alpha
+  m-gamma
+  M-eta
+  m7-gamma
+  m6-eta
+  Maj7-gamma
+  6-gamma
+  9-theta
+6-eta (G) (aehaej)
+  m-beta
+  M-alpha
+  m6-gamma
+  Maj7-delta
+  6-gamma
+  7-delta
+  9-gamma
+6-zeta (E) (--jeha)
+  m7-alpha
+  Dim-alpha
+  m6-delta
+  Maj7-alpha
+  7-theta
+  9-alpha
+7-alpha (E) (ahaeka)
+  m-alpha
+  M-gamma
+  m6-beta
+  Maj7-alpha
+  6-beta
+  7-beta
+  7-theta
+7-beta (A) (-ahaek)
+  Aug-beta
+  m-beta
+  Sus-eta
+  M-delta
+  m7-beta
+  m7-delta
+  m6-gamma
+  Maj7-beta
+  Maj7-delta
+  6-gamma
+  7-alpha
+  7-gamma
+  7-delta
+  9-beta
+7-gamma (D) (--ahke)
+  m-gamma
+  Sus-eta
+  M-eta
+  m7-beta
+  m7-gamma
+  m6-eta
+  Maj7-gamma
+  Maj7-eta
+  7-beta
+  9-theta
+  9-zeta
+7-delta (G) (aehaek)
+  M-alpha
+  m6-gamma
+  Maj7-delta
+  Maj7-eta
+  6-eta
+  7-beta
+  7-eta
+  9-gamma
+7-eta (C) (-aekae)
+  M-beta
+  7-delta
+  7-zeta
+  7-iota
+7-zeta (E) (--aehk)
+  Aug-alpha
+  Maj7-zeta
+  7-eta
+7-theta (E) (ahkeha)
+  Dim-alpha
+  m-alpha
+  Sus-alpha
+  M-gamma
+  m7-alpha
+  m7-beta
+  m6-delta
+  m6-beta
+  Maj7-alpha
+  6-zeta
+  7-alpha
+  9-alpha
+7-iota (C) (-aekah)
+  Sus-gamma
+  m7-beta
+  m7-eta
+  m6-alpha
+  Maj7-beta
+  6-alpha
+  7-eta
+  9-delta
+9-alpha (E) (ahkehc)
+  m-alpha
+  M-gamma
+  m7-alpha
+  m6-delta
+  m6-beta
+  Maj7-alpha
+  6-zeta
+  7-theta
+  9-beta
+  9-zeta
+9-beta (A) (-ahcek)
+  m-beta
+  M-delta
+  m7-beta
+  m7-delta
+  m6-eta
+  m6-gamma
+  Maj7-beta
+  Maj7-delta
+  Maj7-eta
+  6-gamma
+  7-beta
+  9-alpha
+  9-gamma
+9-gamma (G) (achcek)
+  M-alpha
+  Maj7-eta
+  6-eta
+  7-delta
+  9-beta
+9-delta (A) (-aekch)
+  m7-beta
+  m7-eta
+  m6-alpha
+  Maj7-beta
+  Maj7-delta
+  6-alpha
+  7-iota
+  9-eta
+9-eta (E) (--aekc)
+  m7-gamma
+  9-delta
+  9-zeta
+  9-theta
+9-zeta (D) (chahkc)
+  m-gamma
+  m6-eta
+  7-gamma
+  9-alpha
+  9-eta
+  9-theta
+9-theta (D) (ehahkc)
+  m7-gamma
+  m6-eta
+  Maj7-gamma
+  6-delta
+  7-gamma
+  9-eta
+  9-zeta
