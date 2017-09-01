@@ -2,6 +2,10 @@ module Chords(processChords) where
 
 import Bizzlelude
 
+import Color(black, blue, Color, crimson, cyan, dpurple, gray, green, lpurple, pink, red, rose, white)
+import Shape(Point(Point), Shape(Circle, Line, Polygon))
+import SVG(serialize)
+
 import qualified Data.List    as List
 import qualified Data.Text    as Text
 import qualified Data.Text.IO as TIO
@@ -28,7 +32,6 @@ type Note        = Maybe Solfege
 type StringNote  = Maybe (Int, Solfege)
 type Chord       = (Note, Note, Note, Note, Note, Note)
 type StringChord = (StringNote, StringNote, StringNote, StringNote, StringNote, StringNote)
-type SVG         = Text
 
 importChord :: String -> Chord
 importChord [e, a, d, g, b, h] = (charToNote e, charToNote a, charToNote d, charToNote g, charToNote b, charToNote h)
@@ -102,10 +105,10 @@ leftAlignChord chord = chord |> (chordToList >>> (map $ map $ first tamp) >>> li
 -- Horizontal lines at: 14, 28, 42, 56
 -- Don't forget that major sevenths need a black border around the white circles!
 -- Circles have a radius of 9, go on the centers of the vertical lines, and at the midpoints between horizontal lines
-draw :: StringChord -> SVG
-draw chord = serializeSVG $ [background] <> [gridBox] <> strings <> frets <> (fst dots)
+draw :: StringChord -> Text
+draw chord = serialize $ [background] <> [gridBox] <> strings <> frets <> (fst dots)
   where
-    background = Polygon (map (uncurry Point) [(0, 0), (600, 0), (600, 800), (0, 800)]) white white
+    background = Polygon (map Point [(0, 0), (600, 0), (600, 800), (0, 800)]) white white
     width      = 400
     height     = width / 50 * 70
     stringGap  =  width / 5
@@ -116,17 +119,17 @@ draw chord = serializeSVG $ [background] <> [gridBox] <> strings <> frets <> (fs
     dots       = foldr genCircle ([], 0) (chord |> (chordToList >>> List.reverse))
 
     shiftIt :: (Double, Double) -> Point
-    shiftIt = (+ 20) *** (+ 10) >>> (uncurry Point)
+    shiftIt = (+ 20) *** (+ 10) >>> Point
 
     genCircle :: StringNote -> ([Shape], Int) -> ([Shape], Int)
     genCircle (Nothing      ) (notes, stringNum) = (notes,          stringNum + 1)
     genCircle (Just (n, sol)) (notes, stringNum) = ((note : notes), stringNum + 1)
       where
-        note  = Circle (shiftIt ((fromIntegral stringNum) * width / 5, y)) 9 color 2 (if color == white then black else color)
+        note  = Circle (shiftIt ((fromIntegral stringNum) * width / 5, y)) 9 color 2 (if color == white then black else color) -- TODO: Circles should be way larger
         color = solfegeColor sol
         y     = ((fromIntegral n) * fretGap) + (fretGap / 2)
 
-processChords :: Text -> [(Text, SVG)]
+processChords :: Text -> [(Text, Text)]
 processChords = lines >>> (List.filter isChordLine) >>> (map $ extractData >>> makeSVG)
   where
     isChordLine       = Text.head >>> (/= ' ')
@@ -135,21 +138,6 @@ processChords = lines >>> (List.filter isChordLine) >>> (map $ extractData >>> m
         [a, b, c]         = Text.splitOn " " xs
         extractFromParens = (Text.drop 1) >>> Text.reverse >>> (Text.drop 1) >>> Text.reverse
     makeSVG (a, _, c) = (a, c |> (asString >>> importChord >>> toStringChord >>> draw))
-
-type Color = (Int, Int, Int)
-
-black   = (  0,   0,   0) -- Line
-dpurple = (128,   0, 255) -- Minor 3
-lpurple = (185, 115, 255) -- Major 3
-green   = (  0, 255,  33) -- Perfect 1
-crimson = (127,   0,   0) -- Diminished 5
-red     = (255,   0,   0) -- Perfect 5
-rose    = (255, 115, 115) -- Augmented 5
-cyan    = (  0, 255, 255) -- Major 2
-pink    = (255,  76, 255) -- Perfect 4
-blue    = (  0,   0, 217) -- Major 6
-gray    = (168, 168, 183) -- Minor 7
-white   = (255, 255, 255) -- Major 7
 
 solfegeColor :: Solfege -> Color
 solfegeColor Do  = green
@@ -164,25 +152,3 @@ solfegeColor Le  = rose
 solfegeColor La  = blue
 solfegeColor Te  = gray
 solfegeColor Ti  = white
-
-data Point
-  = Point Double Double
-
-data Shape
-  = Circle  Point Int Color Int Color
-  | Polygon [Point] Color Color
-  | Line Point Point Color Int
-
-serializePoint :: Point -> Text
-serializePoint (Point x y) = (showText x) <> "," <> (showText y) <> " "
-
-serializeColor :: Color -> Text
-serializeColor (r, g, b) = "rgb(" <> (showText r) <> "," <> (showText g) <> "," <> (showText b) <> ");"
-
-serializeShape :: Shape -> SVG
-serializeShape (Polygon ps inColor borderColor)                              = "<polygon points=\"" <> (foldMap serializePoint ps) <> "\" style=\"fill:" <> (serializeColor inColor) <> " stroke:" <> (serializeColor borderColor) <> " stroke-width:2\" />"
-serializeShape (Circle (Point x y) radius borderColor borderWidth fillColor) = "<circle cx=\"" <> (showText x) <> "\" cy=\"" <> (showText y) <> "\" r=\"" <> (showText radius) <> "\" stroke=\"" <> (serializeColor borderColor) <> "\" stroke-width=\"" <> (showText borderWidth) <> "\" fill=\"" <> (serializeColor fillColor) <> "\" />"
-serializeShape (Line (Point x1 y1) (Point x2 y2) color width)                = "<line x1=\"" <> (showText x1) <> "\" y1=\"" <> (showText y1) <> "\" x2=\"" <> (showText x2) <> "\" y2=\"" <> (showText y2) <> "\" style=\"stroke:" <> (serializeColor color) <> " stroke-width:" <> (showText width) <> "\" />"
-
-serializeSVG :: [Shape] -> SVG
-serializeSVG p = "<svg xmlns=\"http://www.w3.org/2000/svg\">" <> (foldMap serializeShape p) <> "</svg>"
