@@ -108,7 +108,7 @@ leftAlignChord chord = chord |> (chordToList >>> (map $ map $ first tamp) >>> li
 draw :: StringChord -> Text
 draw chord = serialize $ [background] <> [gridBox] <> strings <> frets <> (fst dots)
   where
-    background = Polygon (map Point [(0, 0), (600, 0), (600, 800), (0, 800)]) white white
+    background = Polygon (map Point [(0, 0), (500, 0), (500, 620), (0, 620)]) white white
     width      = 400
     height     = width / 50 * 70
     stringGap  =  width / 5
@@ -119,7 +119,7 @@ draw chord = serialize $ [background] <> [gridBox] <> strings <> frets <> (fst d
     dots       = foldr genCircle ([], 0) (chord |> (chordToList >>> List.reverse))
 
     shiftIt :: (Double, Double) -> Point
-    shiftIt = (+ 20) *** (+ 10) >>> Point
+    shiftIt = (+ 50) *** (+ 30) >>> Point
 
     genCircle :: StringNote -> ([Shape], Int) -> ([Shape], Int)
     genCircle (Nothing      ) (notes, stringNum) = (notes,          stringNum + 1)
