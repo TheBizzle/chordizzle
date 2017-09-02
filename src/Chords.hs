@@ -100,11 +100,6 @@ leftAlignChord chord = chord |> (chordToList >>> (map $ map $ first tamp) >>> li
   where
     tamp = chord |> (chordToList >>> catMaybes >>> (map fst) >>> minimum >>> subtract)
 
--- Box is 50 wide and 70 tall
--- Vertical   lines at: 10, 20, 30, 40
--- Horizontal lines at: 14, 28, 42, 56
--- Don't forget that major sevenths need a black border around the white circles!
--- Circles have a radius of 9, go on the centers of the vertical lines, and at the midpoints between horizontal lines
 draw :: StringChord -> Text
 draw chord = serialize $ [background] <> [gridBox] <> strings <> frets <> (fst dots)
   where
