@@ -7,6 +7,6 @@ import Color(Color(Color))
 newtype Point = Point (Double, Double) deriving (Eq, Show)
 
 data Shape
-  = Circle  Point Int Color Int Color -- TODO: Maj7 color outlines are inverted!
+  = Circle  Point Int Color Int Color
   | Line Point Point Color Int
   | Polygon [Point] Color Color

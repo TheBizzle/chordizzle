@@ -1,4 +1,4 @@
-module SVG (serialize) where
+module SVG(serialize) where
 
 import Bizzlelude
 
@@ -12,7 +12,7 @@ serializeColor :: Color -> Text
 serializeColor (Color (r, g, b)) = "rgb(" <> (showText r) <> "," <> (showText g) <> "," <> (showText b) <> ");"
 
 serializeShape :: Shape -> Text
-serializeShape (Circle (Point (x, y)) radius borderColor borderWidth fillColor) = "<circle cx=\"" <> (showText x) <> "\" cy=\"" <> (showText y) <> "\" r=\"" <> (showText radius) <> "\" stroke=\"" <> (serializeColor borderColor) <> "\" stroke-width=\"" <> (showText borderWidth) <> "\" fill=\"" <> (serializeColor fillColor) <> "\" />"
+serializeShape (Circle (Point (x, y)) radius fillColor borderWidth borderColor) = "<circle cx=\"" <> (showText x) <> "\" cy=\"" <> (showText y) <> "\" r=\"" <> (showText radius) <> "\" stroke=\"" <> (serializeColor borderColor) <> "\" stroke-width=\"" <> (showText borderWidth) <> "\" fill=\"" <> (serializeColor fillColor) <> "\" />"
 serializeShape (Line (Point (x1, y1)) (Point (x2, y2)) color width)             = "<line x1=\"" <> (showText x1) <> "\" y1=\"" <> (showText y1) <> "\" x2=\"" <> (showText x2) <> "\" y2=\"" <> (showText y2) <> "\" style=\"stroke:" <> (serializeColor color) <> " stroke-width:" <> (showText width) <> "\" />"
 serializeShape (Polygon ps inColor borderColor)                                 = "<polygon points=\"" <> (foldMap serializePoint ps) <> "\" style=\"fill:" <> (serializeColor inColor) <> " stroke:" <> (serializeColor borderColor) <> " stroke-width:2\" />"
 
