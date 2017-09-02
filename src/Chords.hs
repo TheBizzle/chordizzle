@@ -125,9 +125,13 @@ draw chord = serialize $ [background] <> [gridBox] <> strings <> frets <> (fst d
     genCircle (Nothing      ) (notes, stringNum) = (notes,          stringNum + 1)
     genCircle (Just (n, sol)) (notes, stringNum) = ((note : notes), stringNum + 1)
       where
-        note  = Circle (shiftIt ((fromIntegral stringNum) * width / 5, y)) 9 color 2 (if color == white then black else color) -- TODO: Circles should be way larger
-        color = solfegeColor sol
-        y     = ((fromIntegral n) * fretGap) + (fretGap / 2)
+        y           = ((fromIntegral n) * fretGap) + (fretGap / 2)
+        notePoint   = shiftIt ((fromIntegral stringNum) * width / 5, y)
+        radius      = floor $ stringGap / 2.5
+        color       = solfegeColor sol
+        borderColor = if color == white then black else color
+        borderWidth = floor $ (fromIntegral radius) / 4
+        note        = Circle notePoint radius color borderWidth borderColor
 
 processChords :: Text -> [(Text, Text)]
 processChords = lines >>> (List.filter isChordLine) >>> (map $ extractData >>> makeSVG)
