@@ -14,8 +14,8 @@ import qualified Data.Text.IO as TIO
 processChords :: Text -> [(Text, Text)]
 processChords = lines >>> (List.filter isChordLine) >>> (map $ extractData >>> makeSVG)
   where
-    isChordLine       = Text.head >>> (/= ' ')
-    extractData xs    = (a, extractFromParens b, extractFromParens c)
+    isChordLine    = Text.head >>> (/= ' ')
+    extractData xs = (a, extractFromParens b, extractFromParens c)
       where
         [a, b, c]         = Text.splitOn " " xs
         extractFromParens = (Text.drop 1) >>> Text.reverse >>> (Text.drop 1) >>> Text.reverse
