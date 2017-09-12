@@ -29,7 +29,7 @@ serializeShape (Line (Point (x1, y1)) (Point (x2, y2)) color width) = "<line x1=
                                                                         <> " y2=" <> (quoted y2)
                                                             <> " style=\"stroke:" <> (serializeColor color)
                                                               <> " stroke-width:" <> (showText width)
-                                                                         <> "\" />"
+                                                                       <> "\" />"
 
 serializeShape (Polygon ps inColor borderColor) = "<polygon points=" <> (showText $ foldMap serializePoint ps)
                                                  <> " style=\"fill:" <> (serializeColor inColor)
