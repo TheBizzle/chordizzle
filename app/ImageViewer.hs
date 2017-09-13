@@ -5,7 +5,7 @@ import Bizzlelude
 import Data.Functor(($>))
 
 import Graphics.UI.Gtk(AttrOp((:=)), containerChild, imageNewFromFile, initGUI, mainGUI, mainQuit, onDestroy, onKeyPress, set, widgetShowAll, windowNew, windowResizable)
-import Graphics.UI.Gtk.Gdk.Events(Event(eventKeyChar, Key))
+import Graphics.UI.Gtk.Gdk.Events(Event(eventKeyName, Key))
 
 viewFile :: FilePath -> IO ()
 viewFile path =
@@ -19,5 +19,5 @@ viewFile path =
     widgetShowAll window
     mainGUI
   where
-    handleKeyPress (Key { eventKeyChar = Just 'q' }) = mainQuit $> True
+    handleKeyPress (Key { eventKeyName = "Escape" }) = mainQuit $> True
     handleKeyPress _                                 = return False
