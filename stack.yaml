@@ -1,7 +1,29 @@
 flags: {}
-extra-package-dbs: []
+resolver: lts-7.19
+compiler: ghcjs-0.2.1.9007019_ghc-8.0.1
+compiler-check: match-exact
+setup-info:
+  ghcjs:
+    source:
+      ghcjs-0.2.1.9007019_ghc-8.0.1:
+           url: http://ghcjs.tolysz.org/ghc-8.0-2017-02-05-lts-7.19-9007019.tar.gz
+           sha1: d2cfc25f9cda32a25a87d9af68891b2186ee52f9
+
 packages:
 - '.'
+- location:
+    git: git@github.com:reflex-frp/reflex.git
+    commit: 0ff348332fc05521172fb44cef67ece8926c3937
+  extra-dep: true
+- location:
+    git: git@github.com:reflex-frp/reflex-dom.git
+    commit: ce9363915907a74de94e324d7f74b2e8bb600ed2
+  extra-dep: true
+
 extra-deps:
-- bizzlelude-1.0.3
-resolver: lts-9.1
+- bizzlelude-js-1.0.4
+- ghcjs-dom-0.2.4.0
+- ghcjs-dom-jsffi-0.9.2.0
+- prim-uniq-0.1.0.1
+- ref-tf-0.4.0.1
+- zenc-0.1.1
