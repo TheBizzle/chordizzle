@@ -1,4 +1,4 @@
-module Shape(Point(Point), Shape(Circle, Line, Polygon)) where
+module Shape(Point(Point), Shape(Circle, Line, Polygon), VectorDrawing(height, shapes, VectorDrawing, width)) where
 
 import Bizzlelude
 
@@ -11,3 +11,10 @@ data Shape
   | Line Point Point Color Int
   | Polygon [Point] Color Color
   deriving (Eq, Show)
+
+data VectorDrawing
+  = VectorDrawing {
+     width :: Double
+  , height :: Double
+  , shapes :: [Shape]
+  } deriving (Eq, Show)
