@@ -29,12 +29,12 @@ draw chord = VectorDrawing fullWidth fullHeight $ [background] <> [gridBox] <> s
   where
     fullWidth  = 500
     fullHeight = 620
-    background = Polygon (map Point [(0, 0), (fullWidth, 0), (fullWidth, fullHeight), (0, fullHeight)]) white white
+    background = Rectangle (Point (0, 0)) (Point (fullWidth, fullHeight)) white white 2
     width      = fullWidth * 0.8
     height     = width / 5 * 7
     stringGap  =  width / 5
     fretGap    = height / 5
-    gridBox    = Polygon (map shiftIt [(0, 0), (width, 0), (width, height), (0, height)]) white black
+    gridBox    = Rectangle (shiftIt (0, 0)) (shiftIt (width, height)) white black 2
     strings    = map (\x -> Line (shiftIt (x, 0)) (shiftIt (x, height)) black 3) [stringGap, (2 * stringGap) ..  width]
     frets      = map (\y -> Line (shiftIt (0, y)) (shiftIt (width,  y)) black 3) [  fretGap, (2 *   fretGap) .. height]
     dots       = fst $ foldr genCircle ([], 0) (chord |> (chordToList >>> List.reverse))
