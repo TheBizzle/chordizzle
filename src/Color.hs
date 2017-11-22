@@ -1,4 +1,4 @@
-module Color(black, blue, Color(Color), crimson, cyan, dpurple, gray, green, lpurple, pink, red, rose, white) where
+module Color(black, blue, Color(Color), crimson, cyan, dpurple, gray, green, lpurple, pink, red, rose, white, yellow) where
 
 import Bizzlelude
 
@@ -16,3 +16,4 @@ pink    = Color (255,  76, 255)
 red     = Color (255,   0,   0)
 rose    = Color (255, 115, 115)
 white   = Color (255, 255, 255)
+yellow  = Color (255, 255,   0)

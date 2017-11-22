@@ -2,7 +2,7 @@ module Chords(processChords) where
 
 import Bizzlelude
 
-import Color(black, blue, Color, crimson, cyan, dpurple, gray, green, lpurple, pink, red, rose, white)
+import Color(black, blue, Color, crimson, cyan, dpurple, gray, green, lpurple, pink, red, rose, white, yellow)
 import Shape(Point(Point), Shape(Circle, Line, Polygon))
 import SVG(serialize)
 import Theory(Chord, chordToList, Note, Solfege(Do, Ra, Re, Me, Mi, Fa, Se, Sol, Le, La, Te, Ti), StringChord, StringNote, toStringChord)
@@ -49,7 +49,7 @@ draw chord = serialize $ [background] <> [gridBox] <> strings <> frets <> dots
         notePoint   = shiftIt ((fromIntegral stringNum) * width / 5, y)
         radius      = floor $ stringGap / 2.5
         color       = solfegeColor sol
-        borderColor = if color == white then black else color
+        borderColor = if color == white || color == yellow then black else color
         borderWidth = floor $ (fromIntegral radius) / 4
         note        = Circle notePoint radius color borderWidth borderColor
 
@@ -71,7 +71,7 @@ charToNote z   = error $ "Invalid note character: " <> showText z
 
 solfegeColor :: Solfege -> Color
 solfegeColor Do  = green
-solfegeColor Ra  = error "Nerp"
+solfegeColor Ra  = yellow
 solfegeColor Re  = cyan
 solfegeColor Me  = dpurple
 solfegeColor Mi  = lpurple
