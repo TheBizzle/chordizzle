@@ -27,8 +27,10 @@ importChord x                  = error $ "Invalid chord string: " <> showText x
 draw :: StringChord -> Text
 draw chord = serialize $ [background] <> [gridBox] <> strings <> frets <> dots
   where
-    background = Polygon (map Point [(0, 0), (500, 0), (500, 620), (0, 620)]) white white
-    width      = 400
+    fullWidth  = 500
+    fullHeight = 620
+    background = Polygon (map Point [(0, 0), (fullWidth, 0), (fullWidth, fullHeight), (0, fullHeight)]) white white
+    width      = fullWidth * 0.8
     height     = width / 5 * 7
     stringGap  =  width / 5
     fretGap    = height / 5
@@ -38,7 +40,7 @@ draw chord = serialize $ [background] <> [gridBox] <> strings <> frets <> dots
     dots       = fst $ foldr genCircle ([], 0) (chord |> (chordToList >>> List.reverse))
 
     shiftIt :: (Double, Double) -> Point
-    shiftIt = (+ 50) *** (+ 30) >>> Point
+    shiftIt = (+ (fullWidth * 0.1)) *** (+ (fullHeight * 3 / 62)) >>> Point
 
     genCircle :: StringNote -> ([Shape], Int) -> ([Shape], Int)
     genCircle (Nothing      ) (notes, stringNum) = (notes,          stringNum + 1)
@@ -49,7 +51,7 @@ draw chord = serialize $ [background] <> [gridBox] <> strings <> frets <> dots
         radius      = floor $ stringGap / 2.5
         color       = solfegeColor sol
         borderColor = if color == white || color == yellow then black else color
-        borderWidth = floor $ (fromIntegral radius) / 4
+        borderWidth = floor $ (fromIntegral radius) / (4 :: Double)
         note        = Circle notePoint radius color borderColor borderWidth
 
 charToNote :: Char -> Note
