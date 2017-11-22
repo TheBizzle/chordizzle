@@ -7,19 +7,18 @@ import Shape(Point(Point), Shape(Circle, Line, Polygon))
 import SVG(serialize)
 import Theory(Chord, chordToList, Note, Solfege(Do, Ra, Re, Me, Mi, Fa, Se, Sol, Le, La, Te, Ti), StringChord, StringNote, toStringChord)
 
-import qualified Data.List    as List
-import qualified Data.Text    as Text
-import qualified Data.Text.IO as TIO
+import qualified Data.List as List
+import qualified Data.Text as Text
 
 processChords :: Text -> [(Text, Text)]
-processChords = lines >>> (List.filter isChordLine) >>> (map $ extractData >>> makeSVG)
+processChords = lines >>> (List.filter isChordLine) >>> (map $ extractData >>> makePairing)
   where
     isChordLine    = Text.head >>> (/= ' ')
     extractData xs = (a, extractFromParens b, extractFromParens c)
       where
         [a, b, c]         = Text.splitOn " " xs
         extractFromParens = (Text.drop 1) >>> Text.reverse >>> (Text.drop 1) >>> Text.reverse
-    makeSVG (a, _, c) = (a, c |> (asString >>> importChord >>> toStringChord >>> draw))
+    makePairing (a, _, c) = (a, c |> (asString >>> importChord >>> toStringChord >>> draw))
 
 importChord :: String -> Chord
 importChord [e, a, d, g, b, h] = (charToNote e, charToNote a, charToNote d, charToNote g, charToNote b, charToNote h)
@@ -51,7 +50,7 @@ draw chord = serialize $ [background] <> [gridBox] <> strings <> frets <> dots
         color       = solfegeColor sol
         borderColor = if color == white || color == yellow then black else color
         borderWidth = floor $ (fromIntegral radius) / 4
-        note        = Circle notePoint radius color borderWidth borderColor
+        note        = Circle notePoint radius color borderColor borderWidth
 
 charToNote :: Char -> Note
 charToNote 'a' = Just Do
